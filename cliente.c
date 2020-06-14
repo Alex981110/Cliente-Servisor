@@ -42,54 +42,150 @@ int main(int argc, char *argv[])
     printf("\t4.Salir\n");
     scanf("%d", &opcion);
     send(mi_socket, &opcion, sizeof(int), 0);
+    
     switch (opcion)
     {
     case 1:
-      printf("************Examen de Español ************\n");
-      printf("1.-¿Qué es un formulario?\n");
-      printf("\t)a) Un documento de opinion personal\n");
-      printf("\tb) Un examen\n");
-      printf("\tc) Documento que contiene preguntas\n\n");
+      printf("************Examen de Español ************\n\n");
+      printf("1.-Sinónimo de Cabello\n");
+      printf("\t\na) Pelo   b)Canas   c)Chinos\n\n"); //a) correcta
+      //printf("\tb) Un signo de puntuación.\n");
+      //printf("\tc) Una erro gramatical.\n");
 
-      printf("2.-¿Qué es una antología?\n");
-      printf("\ta) Algo en orden cronologico\n");
-      printf("\tb) Diversos elementos que podrán considerarse los mejores en su rama\n");
-      printf("\tc) Resumen de argumentos\n\n");
+      printf("2.-Es un verbo en infinitivo\n");
+      printf("\ta) Comió\n");
+      printf("\tb) Correr\n"); //corecta
+      printf("\tc) Saltará\n");
 
-      printf("3.-¿Qué es una leyenda?\n");
-      printf("\ta) Algo que te cuantan otras personas\n");
-      printf("\tb) Algo falso\n");
-      printf("\tc) Un cuento\n\n");
+      printf("3.-Ejemplo de un palíndromo\n");
+      printf("\ta) Computadora\n");
+      printf("\tb) Ana\n"); //correcto
+      printf("\tc) Cuento\n");
 
-      printf("4.-¿Tipos de argumento?\n");
-      printf("\ta) Consigno, analógico y nexos casuales\n");
-      printf("\tb) Los que yo quiera\n");
-      printf("\tc) Explicativo, razonamiento, casual\n\n");
+      printf("4.-Es una clase de verbo\n");
+      printf("\ta) Sintesis\n");
+      printf("\tb) Pasado perfecto\n");
+      printf("\tc) Transtivos\n");
 
-      printf("5.- ¿Qué es un panel de discusión?\n");
-      printf("\ta) Contradecir las opiniones de los demás\n");
-      printf("\tb) Un debate\n");
-      printf("\tc) Intercambio público de ideas\n\n");
+      printf("5.- ¿Cuántos tiempos verbales existen?\n");
+      printf("\ta) 4\n");
+      printf("\tb) 2\n"); //corecto
+      printf("\tc) 7\n");
 
-      printf("Respuestas con un espacio\n");
+      printf("\nIngresa tus respuestas separadas por un espacio\n");
       printf("\tRespuestas: ");
-
       getchar();
       fgets(respuestas, 10, stdin);
+
       send(mi_socket, &opcion, sizeof(opcion), 0);
       send(mi_socket, &respuestas, sizeof(respuestas), 0);
       recv(mi_socket, &suma, sizeof(int), 0);
       printf("\n*****CALIFICACIÓN: %d*****\n", suma * 2);
-      if (suma > 6){
+      if (suma > 6)
+      {
         printf("\nEres inteligente we\n");
-      }else
+      }
+      else
       {
         printf("\nPuto burro\n");
-      }      
+      }
       break;
 
-      case 4: 
-          break;
+    case 2:
+      printf("************Examen de Matemáticas************\n\n");
+      printf("1.-Es un número imaginario\n");
+      printf("\t)a) 12\n"); 
+      printf("\tb) 3i\n");//correcta
+      printf("\tc) 7x\n");
+
+      printf("2.-El resultado de 5! es:\n");
+      printf("\ta) 12\n");
+      printf("\tb) 0\n"); 
+      printf("\tc) 120\n");//corecta
+
+      printf("3.-¿Qué signo tiene el número 0?\n");
+      printf("\ta) Más\n");
+      printf("\tb) No tiene signo.\n"); //correcta
+      printf("\tc) Menos\n");
+
+      printf("4.-Es una función trigonométrica\n");
+      printf("\ta) 3x+2=0\n");
+      printf("\tb) F(x)\n");
+      printf("\tc) Coseno\n");//correcta
+
+      printf("5.- ¿Cuál es el resultado de 5x - 3 = 3?\n");
+      printf("\ta) X = 4\n");
+      printf("\tb) x = 6/5\n"); //corecta
+      printf("\tc) x = 7\n");
+
+      printf("\nIngresa tus respuestas separadas con un espacio\n");
+      printf("\tRespuestas: ");
+      getchar();
+      fgets(respuestas, 10, stdin);
+
+      send(mi_socket, &opcion, sizeof(opcion), 0);
+      send(mi_socket, &respuestas, sizeof(respuestas), 0);
+      recv(mi_socket, &suma, sizeof(int), 0);
+      printf("\n*****CALIFICACIÓN: %d*****\n", suma * 2);
+      if (suma > 6)
+      {
+        printf("\nEres inteligente we\n");
+      }
+      else
+      {
+        printf("\nPuto burro\n");
+      }
+      break;
+
+    case 3:
+      printf("************Examen de Geografía************\n\n");
+      printf("1.-¿Cuál es la capital de Brasil?\n");
+      printf("\t)a) Lima.\n");
+      printf("\tb) Roma.\n");
+      printf("\tc) Brasilia.\n");//correcta
+
+      printf("2.-¿Cuántps estados tiene México?\n");
+      printf("\ta) 28\n");
+      printf("\tb) 32\n"); //corecta
+      printf("\tc) 12\n");
+
+      printf("3.-¿Cuál es el pais más frande del mundo?\n");
+      printf("\ta) Rusia.\n");//correcta
+      printf("\tb) China.\n"); 
+      printf("\tc) Alemania.\n");
+
+      printf("4.-¿En dónde se encuentra el Anfiteatro de Flavio?\n");
+      printf("\ta) Bogotá, Colombia.\n");
+      printf("\tb) Lisboa, Portugal.\n");
+      printf("\tc) Roma, Italia.\n");//correcta
+
+      printf("5.- ¿Cual es el país con más habitantes en el mundo?\n");
+      printf("\ta) China.\n");//corecta
+      printf("\tb) Francia.\n"); 
+      printf("\tc) Suiza.\n");
+
+      printf("Ingresa tus respuestas separadas con un espacio\n");
+      printf("\tRespuestas: ");
+      getchar();
+      fgets(respuestas, 10, stdin);
+
+      send(mi_socket, &opcion, sizeof(opcion), 0);
+      send(mi_socket, &respuestas, sizeof(respuestas), 0);
+      recv(mi_socket, &suma, sizeof(int), 0);
+      printf("\n*****CALIFICACIÓN: %d*****\n", suma * 2);
+      if (suma > 6)
+      {
+        printf("\nEres inteligente we\n");
+      }
+      else
+      {
+        printf("\nPuto burro\n");
+      }
+      break;
+
+    case 4:
+      printf("\n**********Hata pronto**********");
+      break;
     } //Fin Switch
     close(mi_socket);
   } while (opcion != 4);
