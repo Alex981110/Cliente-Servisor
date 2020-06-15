@@ -11,7 +11,7 @@
 
 int main(int argc, char *argv[])
 {
-  int opcion, tam, mi_socket, suma = 0;
+  int opcion, tam, mi_socket, calificacion = 0;
   char respuestas[10];
   struct sockaddr_in mi_estructura;
 
@@ -49,28 +49,18 @@ int main(int argc, char *argv[])
       printf("************Examen de Español ************\n\n");
       printf("1.-Sinónimo de Cabello\n");
       printf("\t\na) Pelo   b)Canas   c)Chinos\n\n"); //a) correcta
-      //printf("\tb) Un signo de puntuación.\n");
-      //printf("\tc) Una erro gramatical.\n");
 
       printf("2.-Es un verbo en infinitivo\n");
-      printf("\ta) Comió\n");
-      printf("\tb) Correr\n"); //corecta
-      printf("\tc) Saltará\n");
+      printf("\t\na) Comió	b) Correr	c) Saltará\n\n"); //b) correcta
 
       printf("3.-Ejemplo de un palíndromo\n");
-      printf("\ta) Computadora\n");
-      printf("\tb) Ana\n"); //correcto
-      printf("\tc) Cuento\n");
+      printf("\t\na) Computadora		b)Ana	c) Cuento\n\n"); //c) correcta
 
       printf("4.-Es una clase de verbo\n");
-      printf("\ta) Sintesis\n");
-      printf("\tb) Pasado perfecto\n");
-      printf("\tc) Transtivos\n");
+      printf("\t\na) Sintesis	b) Pasado perfecto	c) Transitivos\n\n"); // c) correcta
 
       printf("5.- ¿Cuántos tiempos verbales existen?\n");
-      printf("\ta) 4\n");
-      printf("\tb) 2\n"); //corecto
-      printf("\tc) 7\n");
+      printf("\t\na) 4	b) 2	c) 7\n\n"); //b) correcta
 
       printf("\nIngresa tus respuestas separadas por un espacio\n");
       printf("\tRespuestas: ");
@@ -79,9 +69,9 @@ int main(int argc, char *argv[])
 
       send(mi_socket, &opcion, sizeof(opcion), 0);
       send(mi_socket, &respuestas, sizeof(respuestas), 0);
-      recv(mi_socket, &suma, sizeof(int), 0);
-      printf("\n*****CALIFICACIÓN: %d*****\n", suma * 2);
-      if (suma > 6)
+      recv(mi_socket, &calificacion, sizeof(int), 0);
+      printf("\n*****CALIFICACIÓN: %d*****\n", calificacion * 2);
+      if (calificacion > 6)
       {
         printf("\nEres inteligente we\n");
       }
@@ -125,9 +115,9 @@ int main(int argc, char *argv[])
 
       send(mi_socket, &opcion, sizeof(opcion), 0);
       send(mi_socket, &respuestas, sizeof(respuestas), 0);
-      recv(mi_socket, &suma, sizeof(int), 0);
-      printf("\n*****CALIFICACIÓN: %d*****\n", suma * 2);
-      if (suma > 6)
+      recv(mi_socket, &calificacion, sizeof(int), 0);
+      printf("\n*****CALIFICACIÓN: %d*****\n", calificacion * 2);
+      if (calificacion > 6)
       {
         printf("\nEres inteligente we\n");
       }
@@ -171,9 +161,9 @@ int main(int argc, char *argv[])
 
       send(mi_socket, &opcion, sizeof(opcion), 0);
       send(mi_socket, &respuestas, sizeof(respuestas), 0);
-      recv(mi_socket, &suma, sizeof(int), 0);
-      printf("\n*****CALIFICACIÓN: %d*****\n", suma * 2);
-      if (suma > 6)
+      recv(mi_socket, &calificacion, sizeof(int), 0);
+      printf("\n*****CALIFICACIÓN: %d*****\n", calificacion * 2);
+      if (calificacion > 6)
       {
         printf("\nEres inteligente we\n");
       }
@@ -184,7 +174,7 @@ int main(int argc, char *argv[])
       break;
 
     case 4:
-      printf("\n**********Hata pronto**********");
+      printf("\n**********Hata pronto**********\n");
       break;
     } //Fin Switch
     close(mi_socket);

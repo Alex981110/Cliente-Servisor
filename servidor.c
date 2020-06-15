@@ -11,7 +11,7 @@ int main(int argc, char *argv[])
 {
     int opcion;
     char PosiblesRespuestasEspanol[10];
-    char RespuestasEspanol[10]={'c',' ','b',' ','a',' ','a',' ','c'};
+    char RespuestasEspanol[10]={'a',' ','b',' ','b',' ','c',' ','b'};
     int mi_socket, nuevo, tam;
     struct sockaddr_in mi_estructura;
     mi_estructura.sin_family = AF_INET;
@@ -30,7 +30,7 @@ int main(int argc, char *argv[])
         recv(nuevo,&opcion,sizeof(int),0);
         switch(opcion){
             case 1:
-                printf("******R E S U L T A D O S   E S P A Ñ O L ******\n");
+                printf("\n******R E S U L T A D O S   E S P A Ñ O L ******\n");
                 //se recibe el arreglo de respuetas
                 recv(nuevo,&PosiblesRespuestasEspanol,sizeof(PosiblesRespuestasEspanol),0);
                 printf("Evaluando\n");
@@ -40,12 +40,12 @@ int main(int argc, char *argv[])
                         calificacion++;
                     }
                 }
-                printf("****** C A L I F I C A C I O N   F I N A L ******");
+                printf("\n****** C A L I F I C A C I O N   F I N A L ******\n");
                 //Enviando información
                 send(nuevo,&calificacion,sizeof(calificacion),0);
-                break;
-            
+                break;   
         }
+        
         close(nuevo);
 
     }while(opcion!=4);
